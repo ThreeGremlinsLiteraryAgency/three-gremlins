@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Three Gremlins Bakery</title>
+
+  <style>
+    :root {
+      --cream: #f5ead8;
+      --cream-dark: #e7d3b5;
+      --sage: #7d875d;
+      --olive: #536039;
+      --deep-green: #303824;
+      --brown: #4b301d;
+      --dark-brown: #271b12;
+      --gold: #c19a5b;
+      --paper: #efe1c8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top, #f3e7d0, #e6d4b5 55%, #d4bb92);
+      color: var(--dark-brown);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    select {
+      font: inherit;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(39, 27, 18, 0.96);
+      border-bottom: 2px solid var(--gold);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 70px;
+      padding: 12px 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .nav-brand {
+      color: var(--cream);
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .home-link {
+      border: 1px solid var(--gold);
+      padding: 8px 14px;
+      border-radius: 4px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+
+      max-width: 1250px;
+      margin: auto;
+      padding: 75px 35px;
+      gap: 50px;
+    }
+
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo img {
+      max-width: 100%;
+      width: 600px;
+      height: auto;
+      filter: drop-shadow(0 16px 24px rgba(60, 35, 15, 0.2));
+    }
+
+    .hero-copy {
+      max-width: 550px;
+    }
+
+    .hero-tag {
+      color: var(--olive);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.6rem, 5vw, 5rem);
+      line-height: 1;
+      margin-bottom: 20px;
+      color: var(--brown);
+    }
+
+    .hero-copy h1 span {
+      color: var(--olive);
+    }
+
+    .hero-copy p {
+      font-size: 1.15rem;
+      margin-bottom: 30px;
+      color: #67533f;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background: var(--olive);
+      color: white;
+      padding: 14px 23px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.2s ease;
+      border: 2px solid var(--olive);
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: var(--deep-green);
+      border-color: var(--deep-green);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--brown);
+      border-color: var(--brown);
+    }
+
+    .button.secondary:hover {
+      background: var(--brown);
+      color: white;
+    }
+
+    /* CHAOS BAR */
+
+    .chaos-bar {
+      background: var(--olive);
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+
+      padding: 19px 30px;
+
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* GENERAL */
+
+    .eyebrow {
+      text-transform: uppercase;
+      color: var(--olive);
+      letter-spacing: 4px;
+      font-size: .85rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .welcome {
+      max-width: 850px;
+      margin: auto;
+      padding: 90px 30px;
+      text-align: center;
+    }
+
+    .welcome h2,
+    .products h2,
+    .story h2,
+    .order-section h2 {
+      color: var(--brown);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .welcome p {
+      color: #6a5541;
+      font-size: 1.1rem;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      max-width: 1250px;
+      margin: auto;
+      padding: 20px 30px 70px;
+    }
+
+    .product-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .product-heading p {
+      color: #76624d;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: #f7edda;
+      border: 1px solid #cfb78e;
+      border-radius: 10px;
+      overflow: hidden;
+
+      box-shadow: 0 8px 20px rgba(54, 37, 21, .1);
+      transition: .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 35px rgba(54, 37, 21, .18);
+    }
+
+    .product-image {
+      height: 290px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(135deg, #e5d4b8, #f6ead5);
+
+      color: #8f775b;
+      text-align: center;
+
+      border-bottom: 1px solid #cfb78e;
+
+      padding: 25px;
+      position: relative;
+    }
+
+    .product-image::before {
+      content: "PRODUCT IMAGE";
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .product-image:has(img)::before {
+      display: none;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      position: absolute;
+      inset: 0;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-info h3 {
+      color: var(--brown);
+      font-size: 1.55rem;
+      margin-bottom: 7px;
+    }
+
+    .product-description {
+      color: #76604a;
+      min-height: 95px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: var(--olive);
+      font-size: 1.35rem;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .purchase-controls {
+      padding-top: 15px;
+      border-top: 1px solid #d6c19d;
+    }
+
+    .quantity-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 14px;
+    }
+
+    .quantity-row label {
+      font-weight: bold;
+      color: var(--brown);
+    }
+
+    .quantity-select {
+      padding: 9px 14px;
+      background: white;
+      border: 1px solid #aa916c;
+      border-radius: 5px;
+      color: var(--brown);
+      min-width: 75px;
+      cursor: pointer;
+    }
+
+    .add-button {
+      width: 100%;
+      padding: 12px;
+
+      border: none;
+      border-radius: 5px;
+
+      background: var(--olive);
+      color: white;
+
+      font-weight: bold;
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+    .add-button:hover {
+      background: var(--deep-green);
+    }
+
+    .add-button.added {
+      background: var(--brown);
+    }
+
+    /* CART */
+
+    .cart-section {
+      max-width: 900px;
+      margin: 0 auto 100px;
+      padding: 0 30px;
+    }
+
+    .cart-box {
+      background: var(--dark-brown);
+      color: var(--cream);
+
+      padding: 35px;
+
+      border-radius: 10px;
+      border: 2px solid var(--gold);
+
+      box-shadow: 0 15px 35px rgba(38, 24, 14, .2);
+    }
+
+    .cart-box h2 {
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .cart-empty {
+      color: #cbbda8;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 20px;
+
+      border-bottom: 1px solid rgba(255,255,255,.15);
+
+      padding: 14px 0;
+    }
+
+    .cart-item-name {
+      font-weight: bold;
+    }
+
+    .cart-item-detail {
+      color: #cfbea5;
+    }
+
+    .remove-button {
+      border: none;
+      background: transparent;
+      color: #e6c88d;
+
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .cart-total {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--gold);
+
+      text-align: right;
+
+      margin: 25px 0;
+    }
+
+    .checkout-button {
+      width: 100%;
+
+      padding: 16px;
+
+      background: var(--gold);
+      color: var(--dark-brown);
+
+      border: none;
+      border-radius: 5px;
+
+      font-size: 1.15rem;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .checkout-button:hover {
+      background: #d4b378;
+    }
+
+    .checkout-button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* STORY */
+
+    .story {
+      background:
+        linear-gradient(
+          rgba(48, 56, 36, .96),
+          rgba(39, 45, 29, .96)
+        );
+
+      color: white;
+      padding: 100px 30px;
+    }
+
+    .story-inner {
+      max-width: 1100px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story h2 {
+      color: var(--cream);
+    }
+
+    .story p {
+      color: #e6dcc8;
+      margin-bottom: 18px;
+      font-size: 1.08rem;
+    }
+
+    .story-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+
+      padding: 38px;
+      border-radius: 9px;
+
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--cream);
+    }
+
+    /* VALUES */
+
+    .values {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 30px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 20px;
+    }
+
+    .value-card {
+      border-top: 3px solid var(--olive);
+      padding: 25px;
+      background: rgba(255,255,255,.25);
+    }
+
+    .value-card h3 {
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+
+    .value-card p {
+      color: #725e49;
+      font-size: .95rem;
+    }
+
+    /* ORDER */
+
+    .order-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px 30px 100px;
+      text-align: center;
+    }
+
+    .order-section p {
+      color: #715d49;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--dark-brown);
+      color: var(--cream);
+      padding: 55px 30px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-name {
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 35px auto 0;
+
+      padding-top: 25px;
+
+      border-top: 1px solid rgba(255,255,255,.15);
+
+      color: #ae9e88;
+      font-size: .9rem;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-copy {
+        margin: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-inner {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 13px;
+        font-size: .9rem;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero-logo img {
+        width: 420px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .chaos-bar {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+      }
+
+      .cart-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-inner">
+
+    <a href="index.html" class="nav-brand">
+      THREE GREMLINS
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html" class="home-link">Main Site</a>
+      <a href="#bakery">Bakery</a>
+      <a href="#menu">Our Treats</a>
+      <a href="#story">Our Story</a>
+      <a href="#order">Order</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="bakery">
+
+  <div class="hero-logo">
+    <img
+      src="images/bakery-logo.png"
+      alt="Three Gremlins Bakery - Made With Chaos and Love"
+    >
+  </div>
+
+  <div class="hero-copy">
+
+    <div class="hero-tag">
+      Small Batch • Big Feelings
+    </div>
+
+    <h1>
+      Baking With
+      <span>Chaos & Love.</span>
+    </h1>
+
+    <p>
+      Three Gremlins Bakery makes the kind of food we want
+      waiting for us after a long day: warm, comforting,
+      unapologetically delicious, and created with just enough
+      chaos to keep things interesting.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#menu" class="button">See What's Baking</a>
+      <a href="#order" class="button secondary">How to Order</a>
+    </div>
+
+  </div>
+
+</header>
+
+
+<section class="chaos-bar">
+  <span>♥ MADE WITH CHAOS & LOVE</span>
+  <span>SMALL BATCH</span>
+  <span>COMFORT FOOD FOR EVERYONE</span>
+  <span>ZERO SPOONS REQUIRED</span>
+</section>
+
+
+<section class="welcome">
+
+  <div class="eyebrow">
+    Welcome, Friend
+  </div>
+
+  <h2>
+    Good Food Doesn't Have to Take Itself So Seriously.
+  </h2>
+
+  <p>
+    Around here, baked goods can have ridiculous names,
+    brownies can count as emotional support, cinnamon rolls
+    may be mildly threatening, and perfection is considerably
+    less important than making something that brings somebody
+    a little joy.
+  </p>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="menu">
+
+  <div class="product-heading">
+
+    <div class="eyebrow">
+      From the Gremlin Kitchen
+    </div>
+
+    <h2>
+      Today's Delicious Questionable Decisions
+    </h2>
+
+    <p>
+      Choose your treat, select how many you want, and add it
+      to your order. Your total will update automatically.
+    </p>
+
+  </div>
+
+
+  <div class="product-grid">
+
+
+    <!-- PRODUCT 1 -->
+
+    <article
+      class="product-card"
+      data-id="chaos-cookies"
+      data-name="Chaos Cookies"
+      data-price="12.00"
+    >
+
+      <div class="product-image">
+        <!--
+        <img
+          src="images/chaos-cookies.jpg"
+          alt="Chaos Cookies"
+        >
+        -->
+      </div>
+
+      <div class="product-info">
+
+        <h3>Chaos Cookies</h3>
+
+        <p class="product-description">
+          Big, soft, gloriously unnecessary cookies built for
+          terrible days, excellent days, and days where cookies
+          are simply the correct answer.
+        </p>
+
+        <div class="price">$12.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-chaos-cookies">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-chaos-cookies"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PRODUCT 2 -->
+
+    <article
+      class="product-card"
+      data-id="brownies"
+      data-name="Executive Dysfunction Brownies"
+      data-price="15.00"
+    >
+
+      <div class="product-image">
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          Executive Dysfunction Brownies
+        </h3>
+
+        <p class="product-description">
+          Rich, ridiculously chocolatey brownies for when
+          completing literally anything else feels unreasonable.
+        </p>
+
+        <div class="price">$15.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-brownies">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-brownies"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PRODUCT 3 -->
+
+    <article
+      class="product-card"
+      data-id="cinnamon-rolls"
+      data-name="Cinnamon Rolls of Doom"
+      data-price="18.00"
+    >
+
+      <div class="product-image">
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          Cinnamon Rolls of Doom
+        </h3>
+
+        <p class="product-description">
+          Soft spirals of cinnamon, sugar, icing, and consequences.
+          The doom is mostly metaphorical.
+        </p>
+
+        <div class="price">$18.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-cinnamon-rolls">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-cinnamon-rolls"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PRODUCT 4 -->
+
+    <article
+      class="product-card"
+      data-id="banana-bread"
+      data-name="Burnout Banana Bread"
+      data-price="10.00"
+    >
+
+      <div class="product-image">
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          Burnout Banana Bread
+        </h3>
+
+        <p class="product-description">
+          Cozy, moist banana bread designed for coffee,
+          quiet mornings, and temporarily refusing to participate
+          in capitalism.
+        </p>
+
+        <div class="price">$10.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-banana-bread">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-banana-bread"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PRODUCT 5 -->
+
+    <article
+      class="product-card"
+      data-id="muffins"
+      data-name="Tiny Victory Muffins"
+      data-price="9.00"
+    >
+
+      <div class="product-image">
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          Tiny Victory Muffins
+        </h3>
+
+        <p class="product-description">
+          Because getting out of bed counted. Sending that email
+          counted. Existing today counted. Have a muffin.
+        </p>
+
+        <div class="price">$9.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-muffins">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-muffins"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- PRODUCT 6 -->
+
+    <article
+      class="product-card"
+      data-id="support-treats"
+      data-name="Emotional Support Treats"
+      data-price="8.00"
+    >
+
+      <div class="product-image">
+      </div>
+
+      <div class="product-info">
+
+        <h3>
+          Emotional Support Treats
+        </h3>
+
+        <p class="product-description">
+          Whatever the gremlins have decided needs to exist this
+          week. Limited batches, experimental flavors, and absolutely
+          no promises of responsible decision-making.
+        </p>
+
+        <div class="price">$8.00</div>
+
+        <div class="purchase-controls">
+
+          <div class="quantity-row">
+
+            <label for="qty-support-treats">
+              Quantity
+            </label>
+
+            <select
+              class="quantity-select"
+              id="qty-support-treats"
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+            </select>
+
+          </div>
+
+          <button class="add-button">
+            Add to Order
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- CART -->
+
+<section class="cart-section">
+
+  <div class="cart-box">
+
+    <h2>
+      Your Gremlin Order
+    </h2>
+
+    <div id="cartItems">
+
+      <p class="cart-empty">
+        Your order is currently suspiciously empty.
+      </p>
+
+    </div>
+
+    <div class="cart-total">
+      Total: $<span id="cartTotal">0.00</span>
+    </div>
+
+    <button
+      id="checkoutButton"
+      class="checkout-button"
+      disabled
+    >
+      Proceed to Checkout
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+  <div class="story-inner">
+
+    <div>
+
+      <div
+        class="eyebrow"
+        style="color:#d5c399;"
+      >
+        Why We Bake
+      </div>
+
+      <h2>
+        Comfort Food for Real Life.
+      </h2>
+
+      <p>
+        Three Gremlins Bakery isn't interested in pretending
+        everything is perfect.
+      </p>
+
+      <p>
+        Sometimes life is messy. Sometimes people are exhausted.
+        Sometimes the kitchen looks like somebody detonated a flour
+        bomb, and occasionally dessert happens because somebody
+        desperately needed dessert.
+      </p>
+
+      <p>
+        We believe food can be warm without being fancy,
+        beautiful without being flawless, and meaningful without
+        taking itself too seriously.
+      </p>
+
+    </div>
+
+    <div class="story-card">
+      “We bake.<br>
+      You survive.<br>
+      Everyone wins.”
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VALUES -->
+
+<section class="values">
+
+  <div class="value-card">
+
+    <h3>
+      Small Batch
+    </h3>
+
+    <p>
+      Made in manageable batches instead of disappearing into
+      some enormous industrial bakery.
+    </p>
+
+  </div>
+
+
+  <div class="value-card">
+
+    <h3>
+      Handmade
+    </h3>
+
+    <p>
+      Actual people. Actual kitchens. Actual flour that will
+      somehow end up on absolutely everything.
+    </p>
+
+  </div>
+
+
+  <div class="value-card">
+
+    <h3>
+      Comfort First
+    </h3>
+
+    <p>
+      Food should taste like somebody wanted you to have
+      a better day.
+    </p>
+
+  </div>
+
+
+  <div class="value-card">
+
+    <h3>
+      Gremlin Approved
+    </h3>
+
+    <p>
+      Scientific standards remain questionable, but enthusiasm
+      is extremely high.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="order-section" id="order">
+
+  <div class="eyebrow">
+    Feed Me
+  </div>
+
+  <h2>
+    Want Some Gremlin Food?
+  </h2>
+
+  <p>
+    Pick your treats above, choose your quantities,
+    and the gremlins will do the math.
+  </p>
+
+</section>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-name">
+      THREE GREMLINS BAKERY
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Three Gremlins Home</a>
+      <a href="#menu">Treats</a>
+      <a href="#story">Our Story</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Three Gremlins Bakery.
+    Made with chaos, love, and an irresponsible amount of butter.
+  </div>
+
+</footer>
+
+
+<script>
+
+  /*
+    -------------------------------
+    THREE GREMLINS SHOPPING CART
+    -------------------------------
+  */
+
+  const cart = {};
+
+  const cartItemsContainer =
+    document.getElementById("cartItems");
+
+  const cartTotalElement =
+    document.getElementById("cartTotal");
+
+  const checkoutButton =
+    document.getElementById("checkoutButton");
+
+
+  /*
+    ADD PRODUCT
+  */
+
+  document
+    .querySelectorAll(".product-card")
+    .forEach(card => {
+
+      const button =
+        card.querySelector(".add-button");
+
+      button.addEventListener("click", () => {
+
+        const id =
+          card.dataset.id;
+
+        const name =
+          card.dataset.name;
+
+        const price =
+          parseFloat(card.dataset.price);
+
+        const quantity =
+          parseInt(
+            card.querySelector(".quantity-select").value
+          );
+
+
+        /*
+          If they add the same product again,
+          replace the previous quantity with
+          the newly selected quantity.
+        */
+
+        cart[id] = {
+          id,
+          name,
+          price,
+          quantity
+        };
+
+
+        button.textContent =
+          "✓ Added to Order";
+
+        button.classList.add("added");
+
+
+        setTimeout(() => {
+
+          button.textContent =
+            "Update Order";
+
+        }, 1200);
+
+
+        updateCart();
+
+      });
+
+    });
+
+
+  /*
+    DRAW CART
+  */
+
+  function updateCart() {
+
+    const items =
+      Object.values(cart);
+
+
+    if (items.length === 0) {
+
+      cartItemsContainer.innerHTML = `
+        <p class="cart-empty">
+          Your order is currently suspiciously empty.
+        </p>
+      `;
+
+      cartTotalElement.textContent =
+        "0.00";
+
+      checkoutButton.disabled =
+        true;
+
+      return;
+
+    }
+
+
+    cartItemsContainer.innerHTML =
+      "";
+
+
+    let total = 0;
+
+
+    items.forEach(item => {
+
+      const itemTotal =
+        item.price * item.quantity;
+
+      total += itemTotal;
+
+
+      const row =
+        document.createElement("div");
+
+      row.className =
+        "cart-item";
+
+
+      row.innerHTML = `
+
+        <div>
+
+          <div class="cart-item-name">
+            ${item.name}
+          </div>
+
+          <div class="cart-item-detail">
+            ${item.quantity}
+            ×
+            $${item.price.toFixed(2)}
+          </div>
+
+        </div>
+
+
+        <strong>
+          $${itemTotal.toFixed(2)}
+        </strong>
+
+
+        <button
+          class="remove-button"
+          data-remove="${item.id}"
+        >
+          Remove
+        </button>
+
+      `;
+
+
+      cartItemsContainer.appendChild(row);
+
+    });
+
+
+    cartTotalElement.textContent =
+      total.toFixed(2);
+
+
+    checkoutButton.disabled =
+      false;
+
+
+    /*
+      REMOVE BUTTONS
+    */
+
+    document
+      .querySelectorAll(".remove-button")
+      .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const id =
+            button.dataset.remove;
+
+          delete cart[id];
+
+          updateCart();
+
+        });
+
+      });
+
+  }
+
+
+  /*
+    CHECKOUT
+
+    Converts cart into text that can travel
+    to checkout.html through the URL.
+  */
+
+  checkoutButton.addEventListener(
+    "click",
+    () => {
+
+      const items =
+        Object.values(cart);
+
+
+      if (items.length === 0) {
+        return;
+      }
+
+
+      const cartData =
+        encodeURIComponent(
+          JSON.stringify(items)
+        );
+
+
+      window.location.href =
+        "checkout.html?cart=" + cartData;
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
