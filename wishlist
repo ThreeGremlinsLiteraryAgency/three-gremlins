@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manuscript Wishlist | Three Gremlins Literary Agency</title>
+
+<style>
+
+:root {
+  --ink: #070809;
+  --ink2: #0e1012;
+  --paper: #f4efe4;
+  --gold: #c79b59;
+  --soft: #e0c28d;
+  --muted: #aaa49b;
+  --line: rgba(199,155,89,.28);
+  --max: 1050px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  width: min(calc(100% - 40px), var(--max));
+  margin: auto;
+}
+
+header {
+  padding: 70px 0 40px;
+}
+
+.kicker {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+h1 {
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 400;
+  margin: 10px 0 18px;
+}
+
+.intro {
+  max-width: 760px;
+  color: #c7c0b5;
+  font-size: 19px;
+}
+
+/* ACCORDION */
+
+.accordion {
+  margin: 40px 0 90px;
+  border-top: 1px solid var(--line);
+}
+
+.genre-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.genre-button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--paper);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px 4px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+
+  cursor: pointer;
+  text-align: left;
+}
+
+.genre-button:hover {
+  color: var(--soft);
+}
+
+.arrow {
+  font-family: Arial, sans-serif;
+  color: var(--gold);
+  font-size: 18px;
+  transition: transform .25s ease;
+}
+
+.genre-item.open .arrow {
+  transform: rotate(90deg);
+}
+
+.genre-content {
+  display: none;
+  padding: 0 48px 28px 4px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.genre-item.open .genre-content {
+  display: block;
+}
+
+.genre-content p {
+  margin-top: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="wrap">
+
+  <div class="kicker">
+    Manuscript Wishlist
+  </div>
+
+  <h1>
+    What Milo wants to read.
+  </h1>
+
+  <p class="intro">
+    Milo is looking for distinctive work with a strong voice,
+    clear identity, and something memorable at its center.
+    Expand any category below for more detail.
+  </p>
+
+</header>
+
+
+<main class="wrap">
+
+  <div class="accordion" id="wishlist">
+
+
+    <!-- SLOT 1 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">Horror</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p>
+          Milo is interested in horror that does more than simply
+          frighten. Psychological horror, unsettling speculative work,
+          strange premises, deeply human stakes, and stories where the
+          horror means something are especially welcome.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 2 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">Fantasy</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p>
+          Milo is drawn to fantasy with a strong narrative identity,
+          memorable characters, unusual worldbuilding, and familiar
+          conventions approached from an unexpected angle.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 3 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">Romance</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p>
+          Add Milo's detailed romance wishlist here.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 4 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p>
+          This entire section will automatically disappear.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 5 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 6 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 7 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 8 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 9 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+    <!-- SLOT 10 -->
+
+    <div class="genre-item">
+      <button class="genre-button">
+        <span class="genre-title">None</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="genre-content">
+        <p></p>
+      </div>
+    </div>
+
+
+  </div>
+
+</main>
+
+
+<script>
+
+/* --------------------------------
+   HIDE ANY SECTION CALLED "NONE"
+-------------------------------- */
+
+document.querySelectorAll(".genre-item").forEach(function(item) {
+
+  const title =
+    item.querySelector(".genre-title")
+        .textContent
+        .trim()
+        .toLowerCase();
+
+  if (title === "none") {
+    item.style.display = "none";
+  }
+
+});
+
+
+/* --------------------------------
+   OPEN / CLOSE SECTIONS
+-------------------------------- */
+
+document.querySelectorAll(".genre-button").forEach(function(button) {
+
+  button.addEventListener("click", function() {
+
+    const item = button.closest(".genre-item");
+
+    item.classList.toggle("open");
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
