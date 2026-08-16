@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Milo Nakamura | Three Gremlins Literary Agency</title>
+
+<meta
+    name="description"
+    content="Meet Milo Nakamura, Literary Agent at Three Gremlins Literary Agency."
+>
+
+<style>
+
+:root {
+    --ink: #070809;
+    --ink2: #0e1012;
+    --paper: #f4efe4;
+    --gold: #c79b59;
+    --soft: #e0c28d;
+    --muted: #aaa49b;
+    --line: rgba(199,155,89,.28);
+    --max: 1180px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrap {
+    width: min(calc(100% - 40px), var(--max));
+    margin: auto;
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    background: rgba(7,8,9,.94);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(199,155,89,.16);
+}
+
+.nav {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.brand {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    letter-spacing: .22em;
+    text-transform: uppercase;
+
+    color: var(--soft);
+}
+
+.navlinks {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+
+    letter-spacing: .13em;
+    text-transform: uppercase;
+
+    color: #d7d1c6;
+}
+
+.navlinks a:hover {
+    color: var(--soft);
+}
+
+.navcta {
+    border: 1px solid var(--gold);
+    padding: 10px 16px;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+    padding: 90px 0 84px;
+
+    display: grid;
+    grid-template-columns: .78fr 1.22fr;
+
+    gap: 72px;
+
+    align-items: center;
+}
+
+.portrait-frame {
+    position: relative;
+    max-width: 430px;
+}
+
+.portrait-frame::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 18px -18px -18px 18px;
+
+    border: 1px solid var(--gold);
+
+    z-index: 0;
+}
+
+.portrait {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    display: block;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+    object-position: center 35%;
+
+    filter: contrast(1.02);
+}
+
+.kicker,
+.eyebrow {
+    font-family: Arial, sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: .21em;
+
+    font-size: 11px;
+
+    color: var(--gold);
+}
+
+h1 {
+    font-size: clamp(52px, 7vw, 92px);
+
+    line-height: .97;
+
+    font-weight: 400;
+
+    letter-spacing: -.03em;
+
+    margin: 14px 0 12px;
+}
+
+.role {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    color: var(--soft);
+
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 20px;
+
+    color: #c8c1b6;
+
+    max-width: 690px;
+}
+
+.hero strong {
+    font-weight: 400;
+
+    color: var(--paper);
+}
+
+
+/* ==============================
+   GENERAL SECTIONS
+============================== */
+
+.divider {
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--line),
+            transparent
+        );
+}
+
+section {
+    padding: 82px 0;
+}
+
+.grid {
+    display: grid;
+
+    grid-template-columns: .7fr 1.3fr;
+
+    gap: 60px;
+
+    align-items: start;
+}
+
+h2 {
+    font-size: clamp(34px, 4vw, 54px);
+
+    line-height: 1.08;
+
+    font-weight: 400;
+
+    margin: 10px 0 0;
+}
+
+.copy {
+    font-size: 18px;
+
+    color: #c4bdb2;
+}
+
+.copy p:first-child {
+    margin-top: 0;
+}
+
+.quote {
+    border-left: 1px solid var(--gold);
+
+    padding-left: 24px;
+
+    margin-top: 30px;
+
+    font-size: 22px;
+
+    color: #eee7db;
+}
+
+
+/* ==============================
+   PROFESSIONAL BACKGROUND
+============================== */
+
+.credentials {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+
+    margin-top: 50px;
+}
+
+.card {
+    background: var(--ink2);
+
+    padding: 32px;
+}
+
+.card h3 {
+    font-size: 23px;
+
+    font-weight: 400;
+
+    margin: 0 0 12px;
+}
+
+.card p {
+    margin: 0;
+
+    color: var(--muted);
+}
+
+.label {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+
+    color: var(--gold);
+
+    margin-bottom: 16px;
+}
+
+
+/* ==============================
+   EDITORIAL INTERESTS
+============================== */
+
+.interests {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+
+    margin-top: 48px;
+}
+
+.interest {
+    background: var(--ink2);
+
+    padding: 30px;
+}
+
+.interest h3 {
+    font-size: 21px;
+
+    font-weight: 400;
+
+    margin: 16px 0 10px;
+}
+
+.interest p {
+    margin: 0;
+
+    color: var(--muted);
+}
+
+.num {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    color: var(--gold);
+
+    letter-spacing: .17em;
+}
+
+
+/* ==============================
+   SUBMISSION CTA
+============================== */
+
+.cta {
+    border: 1px solid var(--line);
+
+    padding: 46px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 28px;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(199,155,89,.06),
+            transparent 52%
+        );
+}
+
+.cta h2 {
+    font-size: 39px;
+
+    margin: 8px 0 12px;
+}
+
+.cta p {
+    margin: 0;
+
+    color: #bdb6ab;
+
+    max-width: 720px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 20px;
+
+    background: var(--gold);
+
+    color: #15120e;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 700;
+
+    font-size: 12px;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    padding: 44px 0 58px;
+
+    border-top:
+        1px solid rgba(199,155,89,.15);
+}
+
+.foot {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.ft {
+    color: var(--soft);
+
+    font-size: 14px;
+
+    letter-spacing: .19em;
+
+    text-transform: uppercase;
+}
+
+.fc {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #77736d;
+
+    margin-top: 8px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 850px) {
+
+    .navlinks a:not(.navcta) {
+        display: none;
+    }
+
+    .hero,
+    .grid,
+    .cta {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        gap: 50px;
+
+        padding-top: 50px;
+    }
+
+    .portrait-frame {
+        max-width: 380px;
+    }
+
+    .credentials,
+    .interests {
+        grid-template-columns: 1fr;
+    }
+
+    .foot {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header class="topbar">
+
+<div class="wrap nav">
+
+    <a
+        class="brand"
+        href="literary.html"
+    >
+        Three Gremlins Literary
+    </a>
+
+    <nav
+        class="navlinks"
+        aria-label="Primary navigation"
+    >
+
+        <a href="literary.html">
+            Agency
+        </a>
+
+        <a href="#background">
+            Background
+        </a>
+
+        <a href="#interests">
+            Interests
+        </a>
+
+        <a
+            class="navcta"
+            href="submissions.html"
+        >
+            Submissions
+        </a>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- ==============================
+     HERO / AGENT
+============================== -->
+
+<div class="wrap hero">
+
+
+    <div class="portrait-frame">
+
+        <img
+            class="portrait"
+            src="Milo.jpg"
+            alt="Milo Nakamura"
+        >
+
+    </div>
+
+
+    <div>
+
+        <div class="kicker">
+            Literary Agent
+        </div>
+
+        <h1>
+            Milo<br>
+            Nakamura
+        </h1>
+
+        <div class="role">
+            Three Gremlins Literary Agency
+        </div>
+
+
+        <p>
+
+            Milo brings an interdisciplinary background in
+
+            <strong>
+                resilient communities, nonprofit work,
+                community systems, research, and writing
+            </strong>
+
+            to literary representation.
+
+        </p>
+
+
+        <p>
+
+            Her approach is analytical without losing sight
+            of the thing that matters most: the story.
+
+            She is interested in distinctive voices,
+            ambitious ideas, and authors looking for a
+            thoughtful advocate for both the manuscript
+            in front of them and the career beyond it.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<div class="divider"></div>
+
+
+<!-- ==============================
+     PROFESSIONAL BACKGROUND
+============================== -->
+
+<section id="background">
+
+<div class="wrap">
+
+
+    <div class="grid">
+
+
+        <div>
+
+            <div class="eyebrow">
+                Professional Background
+            </div>
+
+            <h2>
+                A systems thinker
+                in a story business.
+            </h2>
+
+        </div>
+
+
+        <div class="copy">
+
+            <p>
+
+                Milo holds a
+
+                <strong>
+                    Master’s degree in Resilient and
+                    Sustainable Communities
+                </strong>,
+
+                with a background centered on nonprofit
+                and community systems.
+
+                Her academic and professional work
+                developed a perspective grounded in
+                research, complex systems, communication,
+                and the relationship between people and
+                the structures around them.
+
+            </p>
+
+
+            <p>
+
+                She has also pursued doctoral-level study
+                and is an author herself, bringing
+                firsthand familiarity with the creative
+                side of writing alongside the strategic
+                thinking required to evaluate, position,
+                and advocate for a project.
+
+            </p>
+
+
+            <p class="quote">
+
+                Good representation should understand
+                the book, the person who wrote it,
+                and the larger career both are trying
+                to build.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PROFESSIONAL CREDENTIALS -->
+
+    <div class="credentials">
+
+
+        <div class="card">
+
+            <div class="label">
+                Education
+            </div>
+
+            <h3>
+                Master’s Degree
+            </h3>
+
+            <p>
+
+                Resilient and Sustainable Communities,
+                with interdisciplinary study focused on
+                communities, systems, resilience, and
+                sustainable development.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="label">
+                Advanced Study
+            </div>
+
+            <h3>
+                Doctoral-Level Academic Experience
+            </h3>
+
+            <p>
+
+                Previous doctoral study adds experience
+                with advanced research, analysis,
+                synthesis, and long-form academic work.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="label">
+                Professional Perspective
+            </div>
+
+            <h3>
+                Nonprofit & Community Systems
+            </h3>
+
+            <p>
+
+                A professional background in nonprofit
+                and community-focused systems informs a
+                people-centered, strategic approach to
+                advocacy and long-term planning.
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="label">
+                Writing
+            </div>
+
+            <h3>
+                Author
+            </h3>
+
+            <p>
+
+                Milo has authored books and brings an
+                author’s understanding of drafting,
+                revision, creative intent, and the
+                vulnerability involved in putting a
+                manuscript into someone else’s hands.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ==============================
+     EDITORIAL INTERESTS
+============================== -->
+
+<section id="interests">
+
+<div class="wrap">
+
+
+    <div class="grid">
+
+
+        <div>
+
+            <div class="eyebrow">
+                Editorial Interests
+            </div>
+
+            <h2>
+                Stories that
+                leave fingerprints.
+            </h2>
+
+        </div>
+
+
+        <div class="copy">
+
+            <p>
+
+                Milo gravitates toward manuscripts with
+                a strong identity.
+
+                She is less interested in work that
+                merely resembles what is already
+                successful than in books that understand
+                their audience while bringing something
+                unmistakably their own.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="interests">
+
+
+        <div class="interest">
+
+            <div class="num">
+                01 / Voice
+            </div>
+
+            <h3>
+                Distinctive writing
+            </h3>
+
+            <p>
+
+                Confident narrative voices and prose
+                with enough personality that the book
+                could not have been written by just
+                anyone.
+
+            </p>
+
+        </div>
+
+
+        <div class="interest">
+
+            <div class="num">
+                02 / Concept
+            </div>
+
+            <h3>
+                Ambitious ideas
+            </h3>
+
+            <p>
+
+                High-concept premises, unconventional
+                approaches to familiar genres, and
+                ideas with genuine thematic or
+                philosophical substance.
+
+            </p>
+
+        </div>
+
+
+        <div class="interest">
+
+            <div class="num">
+                03 / Heart
+            </div>
+
+            <h3>
+                Human stakes
+            </h3>
+
+            <p>
+
+                Character-driven work where the
+                emotional consequences matter as
+                much as the mechanics of the plot.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ==============================
+     REPRESENTATION PHILOSOPHY
+============================== -->
+
+<section>
+
+<div class="wrap grid">
+
+
+    <div>
+
+        <div class="eyebrow">
+            Representation
+        </div>
+
+        <h2>
+            Thoughtful.
+            Candid.
+            Long-term.
+        </h2>
+
+    </div>
+
+
+    <div class="copy">
+
+        <p>
+
+            Milo’s representation philosophy emphasizes
+            clear communication, honest feedback,
+            careful positioning, and an understanding
+            of an author’s goals beyond a single
+            transaction.
+
+        </p>
+
+
+        <p>
+
+            She intends to maintain a selective list
+            so that representation means active advocacy
+            rather than simply adding another name
+            to a roster.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+     SUBMISSIONS CTA
+============================== -->
+
+<section>
+
+<div class="wrap cta">
+
+
+    <div>
+
+        <div class="eyebrow">
+            Queries
+        </div>
+
+        <h2>
+            Think Milo may be
+            the right agent?
+        </h2>
+
+        <p>
+
+            Review Three Gremlins Literary Agency’s
+            current submission guidelines, manuscript
+            interests, and query requirements before
+            submitting.
+
+        </p>
+
+    </div>
+
+
+    <a
+        class="btn"
+        href="submissions.html"
+    >
+        Submission Guidelines
+    </a>
+
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+<div class="wrap foot">
+
+
+    <div>
+
+        <div class="ft">
+            Three Gremlins Literary
+        </div>
+
+        <div class="fc">
+            © 2026 Three Gremlins Literary.
+            All rights reserved.
+        </div>
+
+    </div>
+
+
+    <div class="fc">
+        Serious advocacy. Unforgettable books.
+    </div>
+
+
+</div>
+
+</footer>
+
+
+</body>
+
+</html>
