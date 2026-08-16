@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Submission Guidelines | Three Gremlins Literary Agency</title>
+
+<meta
+  name="description"
+  content="Submission guidelines for Three Gremlins Literary Agency."
+>
+
+<style>
+:root {
+  --ink: #070809;
+  --ink2: #0e1012;
+  --paper: #f4efe4;
+  --gold: #c79b59;
+  --soft: #e0c28d;
+  --muted: #aaa49b;
+  --line: rgba(199,155,89,.28);
+  --max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(calc(100% - 40px), var(--max));
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(7,8,9,.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(199,155,89,.16);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.navlinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: #d7d1c6;
+}
+
+.navlinks a:hover {
+  color: var(--soft);
+}
+
+.navcta {
+  border: 1px solid var(--gold);
+  padding: 10px 16px;
+}
+
+/* HERO */
+
+.hero {
+  padding: 92px 0 72px;
+  max-width: 900px;
+}
+
+.kicker,
+.eyebrow {
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .21em;
+  font-size: 11px;
+  color: var(--gold);
+}
+
+h1 {
+  margin: 14px 0 24px;
+  font-size: clamp(48px, 7vw, 84px);
+  line-height: .98;
+  font-weight: 400;
+  letter-spacing: -.03em;
+}
+
+.hero p {
+  max-width: 760px;
+  font-size: 20px;
+  color: #c8c1b6;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+}
+
+/* SECTIONS */
+
+section {
+  padding: 78px 0;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: .72fr 1.28fr;
+  gap: 60px;
+  align-items: start;
+}
+
+h2 {
+  margin: 10px 0 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 400;
+}
+
+.copy {
+  font-size: 18px;
+  color: #c4bdb2;
+}
+
+.copy p:first-child {
+  margin-top: 0;
+}
+
+/* STEPS */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+
+.step {
+  background: var(--ink2);
+  padding: 32px 28px;
+}
+
+.num {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: .17em;
+  color: var(--gold);
+}
+
+.step h3 {
+  margin: 18px 0 10px;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* REQUIREMENTS */
+
+.requirements {
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  background: var(--ink2);
+}
+
+.requirement {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  padding: 26px 30px;
+  border-bottom: 1px solid var(--line);
+}
+
+.requirement:last-child {
+  border-bottom: none;
+}
+
+.requirement strong {
+  color: var(--soft);
+  font-weight: 400;
+}
+
+.requirement span {
+  color: var(--muted);
+}
+
+/* POLICY */
+
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+  margin-top: 48px;
+}
+
+.policy {
+  background: var(--ink2);
+  padding: 30px;
+}
+
+.policy h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+.policy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* CTA */
+
+.submit-box {
+  border: 1px solid var(--line);
+  padding: 46px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(199,155,89,.07),
+      transparent 55%
+    );
+}
+
+.submit-box h2 {
+  font-size: 38px;
+  margin: 8px 0 12px;
+}
+
+.submit-box p {
+  margin: 0;
+  color: #bdb6ab;
+  max-width: 720px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 20px;
+  background: var(--gold);
+  color: #15120e;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 44px 0 58px;
+  border-top: 1px solid rgba(199,155,89,.15);
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ft {
+  color: var(--soft);
+  font-size: 14px;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+.fc {
+  margin-top: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #77736d;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+  .navlinks a:not(.navcta) {
+    display: none;
+  }
+
+  .section-grid,
+  .submit-box {
+    grid-template-columns: 1fr;
+  }
+
+  .steps,
+  .policy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .requirement {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .foot {
+    flex-direction: column;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+
+    <a class="brand" href="Literary">
+      Three Gremlins Literary
+    </a>
+
+    <nav class="navlinks" aria-label="Primary navigation">
+
+      <a href="Literary">
+        Agency
+      </a>
+
+      <a href="agent.html">
+        About/Agent
+      </a>
+
+      <a class="navcta" href="#submit">
+        Submit
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <div class="wrap hero">
+
+    <div class="kicker">
+      Submission Guidelines
+    </div>
+
+    <h1>
+      Send us something<br>
+      worth remembering.
+    </h1>
+
+    <p>
+      Three Gremlins Literary welcomes thoughtful,
+      polished queries from writers seeking long-term
+      representation. Please review the guidelines below
+      before submitting.
+    </p>
+
+  </div>
+
+
+  <div class="divider"></div>
+
+
+  <!-- HOW TO SUBMIT -->
+
+  <section>
+
+    <div class="wrap">
+
+      <div class="section-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            How to Submit
+          </div>
+
+          <h2>
+            Keep it simple.
+          </h2>
+
+        </div>
+
+
+        <div class="copy">
+
+          <p>
+            Queries are accepted by email only.
+            Please send one project per email and follow
+            the subject-line format below.
+          </p>
+
+          <p>
+            Initial submissions should be pasted directly
+            into the body of the email. Please do not send
+            attachments unless they are specifically requested.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="steps">
+
+        <article class="step">
+
+          <div class="num">
+            01 / SUBJECT
+          </div>
+
+          <h3>
+            Label it clearly.
+          </h3>
+
+          <p>
+            Use:
+            <strong>QUERY: TITLE – GENRE – AUTHOR NAME</strong>
+          </p>
+
+        </article>
+
+
+        <article class="step">
+
+          <div class="num">
+            02 / MATERIALS
+          </div>
+
+          <h3>
+            Paste your query.
+          </h3>
+
+          <p>
+            Include your query letter, synopsis, and the
+            first ten pages of the manuscript in the body
+            of the email.
+          </p>
+
+        </article>
+
+
+        <article class="step">
+
+          <div class="num">
+            03 / SEND
+          </div>
+
+          <h3>
+            One project at a time.
+          </h3>
+
+          <p>
+            Submit only one manuscript per query.
+            If invited to send additional material,
+            reply to the original email thread.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- WHAT TO INCLUDE -->
+
+  <section>
+
+    <div class="wrap">
+
+      <div class="section-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            What to Include
+          </div>
+
+          <h2>
+            Give us what we need to evaluate the work.
+          </h2>
+
+        </div>
+
+
+        <div class="copy">
+
+          <p>
+            Fiction manuscripts should be complete before
+            querying. Your submission should contain the
+            following information.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="requirements">
+
+        <div class="requirement">
+          <strong>Query Letter</strong>
+          <span>
+            Your pitch, brief author bio, and relevant
+            publication or professional background.
+          </span>
+        </div>
+
+
+        <div class="requirement">
+          <strong>Book Information</strong>
+          <span>
+            Title, genre/category, age market, and total word count.
+          </span>
+        </div>
+
+
+        <div class="requirement">
+          <strong>Synopsis</strong>
+          <span>
+            A concise synopsis that includes the ending.
+            Spoilers are expected.
+          </span>
+        </div>
+
+
+        <div class="requirement">
+          <strong>First 10 Pages</strong>
+          <span>
+            Paste the opening ten manuscript pages directly
+            below the query and synopsis.
+          </span>
+        </div>
+
+
+        <div class="requirement">
+          <strong>Comparable Titles</strong>
+          <span>
+            If appropriate, include two or three recent books
+            that help communicate the audience or market for
+            your project.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- POLICIES -->
+
+  <section>
+
+    <div class="wrap">
+
+      <div class="section-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            Submission Policy
+          </div>
+
+          <h2>
+            A few important things.
+          </h2>
+
+        </div>
+
+
+        <div class="copy">
+
+          <p>
+            Our goal is to make the querying process clear,
+            respectful, and manageable for both authors and
+            the agency.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="policy-grid">
+
+        <article class="policy">
+          <h3>Simultaneous queries are welcome.</h3>
+          <p>
+            You do not need to query Three Gremlins Literary
+            exclusively. If you accept representation elsewhere,
+            simply withdraw your submission.
+          </p>
+        </article>
+
+
+        <article class="policy">
+          <h3>No reading fees.</h3>
+          <p>
+            Three Gremlins Literary does not charge authors
+            to submit work, read manuscripts, or consider
+            representation.
+          </p>
+        </article>
+
+
+        <article class="policy">
+          <h3>No attachments initially.</h3>
+          <p>
+            Please paste requested materials into the email.
+            Attachments should only be sent after the agency
+            specifically requests them.
+          </p>
+        </article>
+
+
+        <article class="policy">
+          <h3>Please be patient.</h3>
+          <p>
+            Response times will vary with submission volume.
+            Current response-time information will be posted
+            here as the agency's query volume develops.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUBMIT CTA -->
+
+  <section id="submit">
+
+    <div class="wrap submit-box">
+
+      <div>
+
+        <div class="eyebrow">
+          Ready to Query?
+        </div>
+
+        <h2>
+          Send your submission.
+        </h2>
+
+        <p>
+          Submit your query to
+          <strong>submissions@threegremlins.com</strong>
+          using the subject-line format above.
+        </p>
+
+      </div>
+
+
+      <a
+        class="btn"
+        href="mailto:submissions@threegremlins.com?subject=QUERY%3A%20TITLE%20%E2%80%93%20GENRE%20%E2%80%93%20AUTHOR%20NAME"
+      >
+        Submit by Email
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap foot">
+
+    <div>
+
+      <div class="ft">
+        Three Gremlins Literary
+      </div>
+
+      <div class="fc">
+        © 2026 Three Gremlins Literary.
+        All rights reserved.
+      </div>
+
+    </div>
+
+
+    <div class="fc">
+      Serious advocacy. Unforgettable books.
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
