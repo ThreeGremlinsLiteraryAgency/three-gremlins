@@ -64,6 +64,7 @@ a {
 
     background: rgba(7,8,9,.94);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     border-bottom: 1px solid rgba(199,155,89,.16);
 }
@@ -75,7 +76,7 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    gap: 24px;
+    gap: 28px;
 }
 
 .brand {
@@ -86,11 +87,17 @@ a {
     text-transform: uppercase;
 
     color: var(--soft);
+
+    white-space: nowrap;
+}
+
+.brand:hover {
+    color: var(--paper);
 }
 
 .navlinks {
     display: flex;
-    gap: 28px;
+    gap: 18px;
     align-items: center;
 
     font-family: Arial, sans-serif;
@@ -102,13 +109,30 @@ a {
     color: #d7d1c6;
 }
 
+.navlinks a,
+.nav-current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 38px;
+
+    padding: 8px 16px;
+
+    white-space: nowrap;
+}
+
 .navlinks a:hover {
     color: var(--soft);
 }
 
-.navcta {
+.nav-current {
     border: 1px solid var(--gold);
-    padding: 10px 16px;
+    border-radius: 999px;
+
+    color: var(--soft);
+
+    cursor: default;
 }
 
 
@@ -484,8 +508,30 @@ footer {
 
 @media (max-width: 850px) {
 
-    .navlinks a:not(.navcta) {
+    .nav {
+        min-height: 70px;
+    }
+
+    .brand {
+        font-size: 12px;
+        letter-spacing: .17em;
+    }
+
+    .navlinks {
+        gap: 8px;
+    }
+
+    .navlinks a,
+    .nav-current {
+        padding: 7px 10px;
+    }
+
+    .navlinks a {
         display: none;
+    }
+
+    .nav-current {
+        display: inline-flex;
     }
 
     .hero,
@@ -544,21 +590,21 @@ footer {
     >
 
         <a href="index.html">
-            Agency
+            Home
         </a>
 
-        <a href="#background">
-            Background
-        </a>
-
-        <a href="#interests">
-            Interests
-        </a>
-
-        <a
-            class="navcta"
-            href="submissions.html"
+        <span
+            class="nav-current"
+            aria-current="page"
         >
+            About/Agent
+        </span>
+
+        <a href="wishlist.html">
+            Wishlist
+        </a>
+
+        <a href="submissions.html">
             Submissions
         </a>
 
@@ -716,8 +762,6 @@ footer {
 
     </div>
 
-
-    <!-- PROFESSIONAL CREDENTIALS -->
 
     <div class="credentials">
 
