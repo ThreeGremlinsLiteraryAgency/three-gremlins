@@ -12,6 +12,7 @@
 >
 
 <style>
+
 :root {
   --ink: #070809;
   --ink2: #0e1012;
@@ -49,54 +50,93 @@ a {
   margin: auto;
 }
 
-/* NAVIGATION */
+
+/* ==============================
+   NAVIGATION
+============================== */
 
 .topbar {
   position: sticky;
   top: 0;
   z-index: 20;
+
   background: rgba(7,8,9,.94);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
   border-bottom: 1px solid rgba(199,155,89,.16);
 }
 
 .nav {
   min-height: 76px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+
+  gap: 28px;
 }
 
 .brand {
   font-family: Arial, sans-serif;
   font-size: 14px;
+
   letter-spacing: .22em;
   text-transform: uppercase;
+
   color: var(--soft);
+
+  white-space: nowrap;
+}
+
+.brand:hover {
+  color: var(--paper);
 }
 
 .navlinks {
   display: flex;
-  gap: 28px;
+  gap: 18px;
   align-items: center;
+
   font-family: Arial, sans-serif;
   font-size: 12px;
+
   letter-spacing: .13em;
   text-transform: uppercase;
+
   color: #d7d1c6;
+}
+
+.navlinks a,
+.nav-current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+
+  padding: 8px 16px;
+
+  white-space: nowrap;
 }
 
 .navlinks a:hover {
   color: var(--soft);
 }
 
-.navcta {
+.nav-current {
   border: 1px solid var(--gold);
-  padding: 10px 16px;
+  border-radius: 999px;
+
+  color: var(--soft);
+
+  cursor: default;
 }
 
-/* HERO */
+
+/* ==============================
+   HERO
+============================== */
 
 .hero {
   padding: 92px 0 72px;
@@ -131,7 +171,10 @@ h1 {
   background: linear-gradient(90deg, transparent, var(--line), transparent);
 }
 
-/* SECTIONS */
+
+/* ==============================
+   SECTIONS
+============================== */
 
 section {
   padding: 78px 0;
@@ -160,7 +203,10 @@ h2 {
   margin-top: 0;
 }
 
-/* STEPS */
+
+/* ==============================
+   STEPS
+============================== */
 
 .steps {
   display: grid;
@@ -194,7 +240,10 @@ h2 {
   color: var(--muted);
 }
 
-/* REQUIREMENTS */
+
+/* ==============================
+   REQUIREMENTS
+============================== */
 
 .requirements {
   margin-top: 48px;
@@ -223,7 +272,10 @@ h2 {
   color: var(--muted);
 }
 
-/* POLICY */
+
+/* ==============================
+   POLICY
+============================== */
 
 .policy-grid {
   display: grid;
@@ -250,15 +302,21 @@ h2 {
   color: var(--muted);
 }
 
-/* CTA */
+
+/* ==============================
+   CTA
+============================== */
 
 .submit-box {
   border: 1px solid var(--line);
   padding: 46px;
+
   display: grid;
   grid-template-columns: 1fr auto;
+
   gap: 32px;
   align-items: center;
+
   background:
     linear-gradient(
       135deg,
@@ -280,17 +338,29 @@ h2 {
 
 .btn {
   display: inline-block;
+
   padding: 14px 20px;
+
   background: var(--gold);
   color: #15120e;
+
   font-family: Arial, sans-serif;
+
   font-size: 12px;
   font-weight: 700;
+
   letter-spacing: .15em;
   text-transform: uppercase;
 }
 
-/* FOOTER */
+.btn:hover {
+  background: var(--soft);
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
 
 footer {
   padding: 44px 0 58px;
@@ -317,12 +387,37 @@ footer {
   color: #77736d;
 }
 
-/* MOBILE */
+
+/* ==============================
+   MOBILE
+============================== */
 
 @media (max-width: 850px) {
 
-  .navlinks a:not(.navcta) {
+  .nav {
+    min-height: 70px;
+  }
+
+  .brand {
+    font-size: 12px;
+    letter-spacing: .17em;
+  }
+
+  .navlinks {
+    gap: 8px;
+  }
+
+  .navlinks a,
+  .nav-current {
+    padding: 7px 10px;
+  }
+
+  .navlinks a {
     display: none;
+  }
+
+  .nav-current {
+    display: inline-flex;
   }
 
   .section-grid,
@@ -343,384 +438,468 @@ footer {
   .foot {
     flex-direction: column;
   }
+
 }
 
 </style>
+
 </head>
 
 <body>
 
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
 <header class="topbar">
+
   <div class="wrap nav">
 
-    <a class="brand" href="index.html">
+    <a
+      class="brand"
+      href="index.html"
+    >
       Three Gremlins Literary
     </a>
 
-    <nav class="navlinks" aria-label="Primary navigation">
+    <nav
+      class="navlinks"
+      aria-label="Primary navigation"
+    >
 
       <a href="index.html">
-        Agency
+        Home
       </a>
 
       <a href="agent.html">
         About/Agent
       </a>
 
-      <a class="navcta" href="submissions.html">
-        Submit
+      <a href="wishlist.html">
+        Wishlist
       </a>
+
+      <span
+        class="nav-current"
+        aria-current="page"
+      >
+        Submissions
+      </span>
 
     </nav>
 
   </div>
+
 </header>
 
 
 <main>
 
-  <!-- HERO -->
 
-  <div class="wrap hero">
+<!-- ==============================
+     HERO
+============================== -->
 
-    <div class="kicker">
-      Submission Guidelines
-    </div>
+<div class="wrap hero">
 
-    <h1>
-      Send us something<br>
-      worth remembering.
-    </h1>
-
-    <p>
-      Three Gremlins Literary welcomes thoughtful,
-      polished queries from writers seeking long-term
-      representation. Please review the guidelines below
-      before submitting.
-    </p>
-
+  <div class="kicker">
+    Submission Guidelines
   </div>
 
+  <h1>
+    Send us something<br>
+    worth remembering.
+  </h1>
 
-  <div class="divider"></div>
+  <p>
+    Three Gremlins Literary welcomes thoughtful,
+    polished queries from writers seeking long-term
+    representation. Please review the guidelines below
+    before submitting.
+  </p>
 
+</div>
 
-  <!-- HOW TO SUBMIT -->
 
-  <section>
+<div class="divider"></div>
 
-    <div class="wrap">
 
-      <div class="section-grid">
+<!-- ==============================
+     HOW TO SUBMIT
+============================== -->
 
-        <div>
+<section>
 
-          <div class="eyebrow">
-            How to Submit
-          </div>
+  <div class="wrap">
 
-          <h2>
-            Keep it simple.
-          </h2>
-
-        </div>
-
-
-        <div class="copy">
-
-          <p>
-            Queries are accepted by email only.
-            Please send one project per email and follow
-            the subject-line format below.
-          </p>
-
-          <p>
-            Initial submissions should the first ten pages
-            in PDF form attached to the email.  In the email,
-            please give a short one paragraph description of
-            your book.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="steps">
-
-        <article class="step">
-
-          <div class="num">
-            01 / SUBJECT
-          </div>
-
-          <h3>
-            Label it clearly.
-          </h3>
-
-          <p>
-            Use:
-            <strong>QUERY: TITLE – GENRE – AUTHOR NAME</strong>
-          </p>
-
-        </article>
-
-
-        <article class="step">
-
-          <div class="num">
-            02 / MATERIALS
-          </div>
-
-          <h3>
-            Paste your query.
-          </h3>
-
-          <p>
-            Include your query letter, synopsis, and the
-            first ten pages of the manuscript. Your first ten pages should be put in a PDF and attached to the email. 
-          </p>
-
-        </article>
-
-
-        <article class="step">
-
-          <div class="num">
-            03 / SEND
-          </div>
-
-          <h3>
-            One project at a time.
-          </h3>
-
-          <p>
-            Submit only one manuscript per query.
-            If invited to send additional material,
-            reply to the original email thread.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="divider"></div>
-
-
-  <!-- WHAT TO INCLUDE -->
-
-  <section>
-
-    <div class="wrap">
-
-      <div class="section-grid">
-
-        <div>
-
-          <div class="eyebrow">
-            What to Include
-          </div>
-
-          <h2>
-            Give us what we need to evaluate the work.
-          </h2>
-
-        </div>
-
-
-        <div class="copy">
-
-          <p>
-            Fiction manuscripts should be complete before
-            querying. Your submission should contain the
-            following information.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="requirements">
-
-        <div class="requirement">
-          <strong>Query Letter</strong>
-          <span>
-            Your pitch, brief author bio, and relevant
-            publication or professional background.
-          </span>
-        </div>
-
-
-        <div class="requirement">
-          <strong>Book Information</strong>
-          <span>
-            Title, genre/category, age market, and total word count.
-          </span>
-        </div>
-
-
-        <div class="requirement">
-          <strong>Synopsis</strong>
-          <span>
-            A concise synopsis that includes the ending.
-            Spoilers are expected.
-          </span>
-        </div>
-
-
-        <div class="requirement">
-          <strong>First 10 Pages</strong>
-          <span>
-            Attach the first ten pages in a PDF document in your query email.
-          </span>
-        </div>
-
-
-        <div class="requirement">
-          <strong>Comparable Titles</strong>
-          <span>
-            If appropriate, include two or three recent books
-            that help communicate the audience or market for
-            your project.
-          </span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <div class="divider"></div>
-
-
-  <!-- POLICIES -->
-
-  <section>
-
-    <div class="wrap">
-
-      <div class="section-grid">
-
-        <div>
-
-          <div class="eyebrow">
-            Submission Policy
-          </div>
-
-          <h2>
-            A few important things.
-          </h2>
-
-        </div>
-
-
-        <div class="copy">
-
-          <p>
-            Our goal is to make the querying process clear,
-            respectful, and manageable for both authors and
-            the agency.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="policy-grid">
-
-        <article class="policy">
-          <h3>Simultaneous queries are welcome.</h3>
-          <p>
-            You do not need to query Three Gremlins Literary
-            exclusively. If you accept representation elsewhere,
-            simply withdraw your submission.
-          </p>
-        </article>
-
-
-        <article class="policy">
-          <h3>No reading fees.</h3>
-          <p>
-            Three Gremlins Literary does not charge authors
-            to submit work, read manuscripts, or consider
-            representation.
-          </p>
-        </article>
-
-
-        <article class="policy">
-          <h3>No attachments initially.</h3>
-          <p>
-            Please paste requested materials into the email.
-            Attachments should only be sent after the agency
-            specifically requests them.
-          </p>
-        </article>
-
-
-        <article class="policy">
-          <h3>Please be patient.</h3>
-          <p>
-            Response times will vary with submission volume.
-            Current response-time information will be posted
-            here as the agency's query volume develops.
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SUBMIT CTA -->
-
-  <section id="submit">
-
-    <div class="wrap submit-box">
+    <div class="section-grid">
 
       <div>
 
         <div class="eyebrow">
-          Ready to Query?
+          How to Submit
         </div>
 
         <h2>
-          Send your submission.
+          Keep it simple.
         </h2>
-
-        <p>
-          Submit your query to
-          <strong>submissions@threegremlins.com</strong>
-          using the subject-line format above.
-        </p>
 
       </div>
 
 
-      <a
-        class="btn"
-        href="mailto:submissions@threegremlins.com?subject=QUERY%3A%20TITLE%20%E2%80%93%20GENRE%20%E2%80%93%20AUTHOR%20NAME"
-      >
-        Submit by Email
-      </a>
+      <div class="copy">
+
+        <p>
+          Queries are accepted by email only.
+          Please send one project per email and follow
+          the subject-line format below.
+        </p>
+
+        <p>
+          Initial submissions should the first ten pages
+          in PDF form attached to the email. In the email,
+          please give a short one paragraph description of
+          your book.
+        </p>
+
+      </div>
 
     </div>
 
-  </section>
+
+    <div class="steps">
+
+      <article class="step">
+
+        <div class="num">
+          01 / SUBJECT
+        </div>
+
+        <h3>
+          Label it clearly.
+        </h3>
+
+        <p>
+          Use:
+          <strong>QUERY: TITLE – GENRE – AUTHOR NAME</strong>
+        </p>
+
+      </article>
+
+
+      <article class="step">
+
+        <div class="num">
+          02 / MATERIALS
+        </div>
+
+        <h3>
+          Paste your query.
+        </h3>
+
+        <p>
+          Include your query letter, synopsis, and the
+          first ten pages of the manuscript. Your first ten pages
+          should be put in a PDF and attached to the email.
+        </p>
+
+      </article>
+
+
+      <article class="step">
+
+        <div class="num">
+          03 / SEND
+        </div>
+
+        <h3>
+          One project at a time.
+        </h3>
+
+        <p>
+          Submit only one manuscript per query.
+          If invited to send additional material,
+          reply to the original email thread.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ==============================
+     WHAT TO INCLUDE
+============================== -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          What to Include
+        </div>
+
+        <h2>
+          Give us what we need to evaluate the work.
+        </h2>
+
+      </div>
+
+
+      <div class="copy">
+
+        <p>
+          Fiction manuscripts should be complete before
+          querying. Your submission should contain the
+          following information.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="requirements">
+
+      <div class="requirement">
+
+        <strong>
+          Query Letter
+        </strong>
+
+        <span>
+          Your pitch, brief author bio, and relevant
+          publication or professional background.
+        </span>
+
+      </div>
+
+
+      <div class="requirement">
+
+        <strong>
+          Book Information
+        </strong>
+
+        <span>
+          Title, genre/category, age market, and total word count.
+        </span>
+
+      </div>
+
+
+      <div class="requirement">
+
+        <strong>
+          Synopsis
+        </strong>
+
+        <span>
+          A concise synopsis that includes the ending.
+          Spoilers are expected.
+        </span>
+
+      </div>
+
+
+      <div class="requirement">
+
+        <strong>
+          First 10 Pages
+        </strong>
+
+        <span>
+          Attach the first ten pages in a PDF document in your query email.
+        </span>
+
+      </div>
+
+
+      <div class="requirement">
+
+        <strong>
+          Comparable Titles
+        </strong>
+
+        <span>
+          If appropriate, include two or three recent books
+          that help communicate the audience or market for
+          your project.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+<!-- ==============================
+     POLICIES
+============================== -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          Submission Policy
+        </div>
+
+        <h2>
+          A few important things.
+        </h2>
+
+      </div>
+
+
+      <div class="copy">
+
+        <p>
+          Our goal is to make the querying process clear,
+          respectful, and manageable for both authors and
+          the agency.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="policy-grid">
+
+      <article class="policy">
+
+        <h3>
+          Simultaneous queries are welcome.
+        </h3>
+
+        <p>
+          You do not need to query Three Gremlins Literary
+          exclusively. If you accept representation elsewhere,
+          simply withdraw your submission.
+        </p>
+
+      </article>
+
+
+      <article class="policy">
+
+        <h3>
+          No reading fees.
+        </h3>
+
+        <p>
+          Three Gremlins Literary does not charge authors
+          to submit work, read manuscripts, or consider
+          representation.
+        </p>
+
+      </article>
+
+
+      <article class="policy">
+
+        <h3>
+          No attachments initially.
+        </h3>
+
+        <p>
+          Please paste requested materials into the email.
+          Attachments should only be sent after the agency
+          specifically requests them.
+        </p>
+
+      </article>
+
+
+      <article class="policy">
+
+        <h3>
+          Please be patient.
+        </h3>
+
+        <p>
+          Response times will vary with submission volume.
+          Current response-time information will be posted
+          here as the agency's query volume develops.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     SUBMIT CTA
+============================== -->
+
+<section id="submit">
+
+  <div class="wrap submit-box">
+
+    <div>
+
+      <div class="eyebrow">
+        Ready to Query?
+      </div>
+
+      <h2>
+        Send your submission.
+      </h2>
+
+      <p>
+        Submit your query to
+        <strong>submissions@threegremlins.com</strong>
+        using the subject-line format above.
+      </p>
+
+    </div>
+
+
+    <a
+      class="btn"
+      href="mailto:submissions@threegremlins.com?subject=QUERY%3A%20TITLE%20%E2%80%93%20GENRE%20%E2%80%93%20AUTHOR%20NAME"
+    >
+      Submit by Email
+    </a>
+
+  </div>
+
+</section>
+
 
 </main>
 
+
+<!-- ==============================
+     FOOTER
+============================== -->
 
 <footer>
 
@@ -747,6 +926,7 @@ footer {
   </div>
 
 </footer>
+
 
 </body>
 </html>
